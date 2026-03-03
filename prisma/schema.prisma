@@ -53,14 +53,15 @@ enum WeekDay {
 }
 
 model WorkoutDay {
-  id            String      @id @default(uuid())
-  name          String
-  workoutPlanId String
-  workoutPlan   WorkoutPlan @relation(fields: [workoutPlanId], references: [id], onDelete: Cascade)
-  isRest        Boolean     @default(false)
-  weekDay       WeekDay
-  createdAt     DateTime    @default(now()) @db.Timestamptz()
-  updatedAt     DateTime    @updatedAt @db.Timestamptz()
+  id                         String      @id @default(uuid())
+  name                       String
+  workoutPlanId              String
+  workoutPlan                WorkoutPlan @relation(fields: [workoutPlanId], references: [id], onDelete: Cascade)
+  isRest                     Boolean     @default(false)
+  weekDay                    WeekDay
+  estimatedDurationInSeconds Int
+  createdAt                  DateTime    @default(now()) @db.Timestamptz()
+  updatedAt                  DateTime    @updatedAt @db.Timestamptz()
 
   workoutExercises WorkoutExercise[]
   workoutSessions  WorkoutSession[]
