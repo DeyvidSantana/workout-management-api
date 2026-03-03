@@ -91,6 +91,7 @@ export const workoutPlanRoutes = async (app: FastifyInstance) => {
 - Quando um use case receber um parâmetro, ele deve **SEMPRE** ser um DTO (`InputDto`), que é uma interface definida no mesmo arquivo.
 - O retorno de um use case deve **SEMPRE** ser tipado com uma interface `OutputDto`, definida no mesmo arquivo. O use case deve mapear o resultado do banco para o `OutputDto`, **NUNCA** retornando o model do Prisma diretamente. Isso garante desacoplamento entre a camada de negócio e o banco de dados.
 - Ao precisar interagir com o banco de dados, um use case deve **SEMPRE** chamar o Prisma diretamente, e não um repository.
+- **SEMPRE** use o tipo `WeekDay` importado de `../generated/prisma/enums.js` para tipar campos de dia da semana nos DTOs (`InputDto` e `OutputDto`). **NUNCA** use `string` para representar WeekDay.
 - **NUNCA** lide com erros nos use cases. Quem lida com os erros (com try, catch) é sempre a rota @src/routes.
 - Caso um use case lance uma exceção, deve ser **SEMPRE** lançado um erro customizado. Esses erros ficam em @src/errors/index.ts. Caso um erro necessário não exista, crie-o.
 
