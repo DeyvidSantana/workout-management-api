@@ -8,7 +8,7 @@ export const ErroSchema = z.object({
 });
 
 export const UserTrainDataSchema = z.object({
-  userId: z.uuid(),
+  userId: z.string(),
   userName: z.string(),
   weightInGrams: z.number().int().min(0),
   heightInCentimeters: z.number().int().min(0),
