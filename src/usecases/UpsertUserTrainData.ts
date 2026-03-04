@@ -5,7 +5,7 @@ interface InputDto {
   weightInGrams: number;
   heightInCentimeters: number;
   age: number;
-  bodyFatPercentage: number; // 1 representa 100%
+  bodyFatPercentage: number; // 100 representa 100%
 }
 
 interface OutputDto {
@@ -13,7 +13,7 @@ interface OutputDto {
   weightInGrams: number;
   heightInCentimeters: number;
   age: number;
-  bodyFatPercentage: number; // 1 representa 100%
+  bodyFatPercentage: number; // 100 representa 100%
 }
 
 export class UpsertUserTrainData {
@@ -24,7 +24,7 @@ export class UpsertUserTrainData {
         weightInGrams: dto.weightInGrams,
         heightInCentimeters: dto.heightInCentimeters,
         age: dto.age,
-        bodyFatPercentage: Math.round(dto.bodyFatPercentage * 100),
+        bodyFatPercentage: dto.bodyFatPercentage,
       },
     });
 
@@ -33,7 +33,7 @@ export class UpsertUserTrainData {
       weightInGrams: user.weightInGrams!,
       heightInCentimeters: user.heightInCentimeters!,
       age: user.age!,
-      bodyFatPercentage: user.bodyFatPercentage! / 100,
+      bodyFatPercentage: user.bodyFatPercentage!,
     };
   }
 }

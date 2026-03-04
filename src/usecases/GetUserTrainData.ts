@@ -10,7 +10,7 @@ interface OutputDto {
   weightInGrams: number;
   heightInCentimeters: number;
   age: number;
-  bodyFatPercentage: number; // 1 representa 100%
+  bodyFatPercentage: number; // 100 representa 100%
 }
 
 export class GetUserTrainData {
@@ -35,7 +35,7 @@ export class GetUserTrainData {
       weightInGrams: user.weightInGrams,
       heightInCentimeters: user.heightInCentimeters,
       age: user.age,
-      bodyFatPercentage: user.bodyFatPercentage / 100,
+      bodyFatPercentage: user.bodyFatPercentage,
     };
   }
 }

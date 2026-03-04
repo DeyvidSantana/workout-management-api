@@ -13,7 +13,7 @@ export const UserTrainDataSchema = z.object({
   weightInGrams: z.number().int().min(0),
   heightInCentimeters: z.number().int().min(0),
   age: z.number().int().min(0),
-  bodyFatPercentage: z.number().min(0).max(1),
+  bodyFatPercentage: z.number().int().min(0).max(100),
 });
 
 export const WorkoutSessionSchema = z.object({
