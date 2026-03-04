@@ -7,6 +7,15 @@ export const ErroSchema = z.object({
   code: z.string(),
 });
 
+export const UserTrainDataSchema = z.object({
+  userId: z.uuid(),
+  userName: z.string(),
+  weightInGrams: z.number().int().min(0),
+  heightInCentimeters: z.number().int().min(0),
+  age: z.number().int().min(0),
+  bodyFatPercentage: z.number().min(0).max(1),
+});
+
 export const WorkoutSessionSchema = z.object({
   workoutSessionId: z.uuid(),
 });
